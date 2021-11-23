@@ -1,4 +1,5 @@
 import Nullstack from 'nullstack';
+import TodoForm from './TodoForm.njs';
 import './TodoList.scss';
 
 class TodoList extends Nullstack {
@@ -6,7 +7,7 @@ class TodoList extends Nullstack {
     context.todos = [
       { description: 'Learn HTML' },
       { description: 'Learn CSS' },
-      { description: 'Learn JavaScript' },
+      { description: '😁 Learn JavaScript' },
     ];
   }
 
@@ -24,8 +25,11 @@ class TodoList extends Nullstack {
   render({ todos }) {
     return (
       <div>
+        <TodoForm />
         <ul>
-          {todos.map((todo) => <Todo todo={todo} />)}
+          {todos.map((todo) => (
+            <Todo todo={todo} />
+          ))}
         </ul>
       </div>
     );
