@@ -3,15 +3,18 @@ import Nullstack from 'nullstack';
 class TodoForm extends Nullstack {
   description = '';
 
-  addTodo() {
-    console.log('added: ', this.description);
+  addTodo({ todos }) {
+    todos.push({
+      description: this.description,
+      done: false
+    });
     this.description = '';
   }
 
   render() {
     return (
       <form onsubmit={this.addTodo}>
-        <input require autocomplete="off" autofocus bind={this.description} />
+        <input required autocomplete="off" autofocus bind={this.description} />
         <button> Add task </button>
       </form>
     );
