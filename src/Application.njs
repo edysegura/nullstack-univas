@@ -4,14 +4,14 @@ import TodoList from './todo/TodoList';
 
 class Application extends Nullstack {
 
-  prepare({ page }) {
+  prepare({ page, project }) {
+    page.title = project.name;
     page.locale = 'en-US';
   }
 
   renderHead() {
     return (
       <head>
-        <title>Edy Segura</title>
         <link
           href="https://fonts.gstatic.com" rel="preconnect" />
         <link
