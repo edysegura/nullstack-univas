@@ -1,5 +1,6 @@
 import Nullstack from 'nullstack';
 import './Application.scss';
+import TodoList from './todo/TodoList';
 
 class Application extends Nullstack {
 
@@ -24,6 +25,7 @@ class Application extends Nullstack {
     return (
       <main>
         <Head />
+        <TodoList />
       </main>
     )
   }
