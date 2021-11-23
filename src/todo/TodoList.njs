@@ -2,13 +2,19 @@ import Nullstack from 'nullstack';
 
 class TodoList extends Nullstack {
 
-  render() {
+  prepare(context) {
+    context.todos = [
+      { description: 'Task 1' },
+      { description: 'Task 2' },
+      { description: 'Task 3' },
+    ]
+  }
+
+  render({ todos }) {
     return (
       <div>
         <ul>
-          <li>Task 1</li>
-          <li>Task 2</li>
-          <li>Task 3</li>
+          {todos.map(todo => <li>{todo.description}</li>)}
         </ul>
       </div>
     )
