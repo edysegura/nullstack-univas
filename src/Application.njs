@@ -1,6 +1,5 @@
 import Nullstack from 'nullstack';
 import './Application.scss';
-import Home from './Home';
 
 class Application extends Nullstack {
 
@@ -11,12 +10,13 @@ class Application extends Nullstack {
   renderHead() {
     return (
       <head>
-        <link 
+        <title>Edy Segura</title>
+        <link
           href="https://fonts.gstatic.com" rel="preconnect" />
-        <link 
+        <link
           href="https://fonts.googleapis.com/css2?family=Crete+Round&family=Roboto&display=swap"
           rel="stylesheet" />
-      </head> 
+      </head>
     )
   }
 
@@ -24,7 +24,6 @@ class Application extends Nullstack {
     return (
       <main>
         <Head />
-        <Home route="/" />
       </main>
     )
   }
