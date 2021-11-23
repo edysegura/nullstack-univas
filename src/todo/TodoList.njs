@@ -1,5 +1,6 @@
 import Nullstack from 'nullstack';
-import TodoForm from './TodoForm.njs';
+import TodoCounter from './TodoCounter';
+import TodoForm from './TodoForm';
 import './TodoList.scss';
 
 class TodoList extends Nullstack {
@@ -31,6 +32,7 @@ class TodoList extends Nullstack {
             <Todo todo={todo} />
           ))}
         </ul>
+        <TodoCounter />
       </div>
     );
   }
