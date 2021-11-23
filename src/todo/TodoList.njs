@@ -1,12 +1,13 @@
 import Nullstack from 'nullstack';
+import './TodoList.scss';
 
 class TodoList extends Nullstack {
 
   prepare(context) {
     context.todos = [
-      { description: 'Task 1' },
-      { description: 'Task 2' },
-      { description: 'Task 3' },
+      { description: 'Learn HTML' },
+      { description: 'Learn CSS' },
+      { description: 'Learn JavaScript' },
     ]
   }
 
@@ -14,7 +15,14 @@ class TodoList extends Nullstack {
     return (
       <div>
         <ul>
-          {todos.map(todo => <li>{todo.description}</li>)}
+          {todos.map(todo => (
+            <li>
+              <label>
+                <input type="checkbox" bind={todo.done} />
+                {todo.description}
+              </label>
+            </li>
+          ))}
         </ul>
       </div>
     )
