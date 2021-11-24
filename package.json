@@ -12,6 +12,7 @@
     "build": "npx nullstack build --mode=ssr"
   },
   "dependencies": {
-    "mongodb": "^4.2.0"
+    "mongodb": "^4.2.0",
+    "tailwindcss": "^2.2.19"
   }
 }

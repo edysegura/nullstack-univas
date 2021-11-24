@@ -2,6 +2,7 @@ import { MongoClient } from 'mongodb';
 import Nullstack from 'nullstack';
 import './Application.scss';
 import TodoList from './todo/TodoList';
+import 'tailwindcss/dist/tailwind.css';
 
 class Application extends Nullstack {
   static async start(context) {
@@ -13,7 +14,7 @@ class Application extends Nullstack {
     });
 
     await databaseClient.connect();
-    const database = await databaseClient.db(secrets.databaseName);
+    const database = databaseClient.db(secrets.databaseName);
 
     context.database = database;
   }
