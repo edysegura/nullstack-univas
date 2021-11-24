@@ -14,10 +14,10 @@ class TodoList extends Nullstack {
 
   renderTodo({ todo }) {
     return (
-      <li>
+      <li class="flex row items-center justify-between w-full py-1 px-4 my-1 rounded border bg-gray-100 text-gray-600">
         <label>
           <input type="checkbox" bind={todo.done} />
-          {todo.description}
+          <span class="pl-1">{todo.description}</span>
         </label>
       </li>
     );
@@ -25,7 +25,7 @@ class TodoList extends Nullstack {
 
   render({ todos }) {
     return (
-      <div>
+      <div class="container mx-auto p-5">
         <TodoForm />
         <ul>
           {todos.map((todo) => (

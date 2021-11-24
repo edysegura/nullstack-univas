@@ -10,10 +10,10 @@ class TodoForm extends Nullstack {
   async addTodo({ todos }) {
     const newItem = {
       description: this.description,
-      done: false
-    }
+      done: false,
+    };
 
-    await this.createTask({ newItem })
+    await this.createTask({ newItem });
     todos.push(newItem);
 
     this.description = '';
@@ -22,8 +22,18 @@ class TodoForm extends Nullstack {
   render() {
     return (
       <form onsubmit={this.addTodo}>
-        <input required autocomplete="off" autofocus bind={this.description} />
-        <button> Add task </button>
+        <div class="flex column">
+          <input
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            required
+            autocomplete="off"
+            autofocus
+            bind={this.description}
+          />
+          <button class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+            ➕
+          </button>
+        </div>
       </form>
     );
   }
