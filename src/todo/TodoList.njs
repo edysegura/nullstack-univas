@@ -4,12 +4,12 @@ import TodoForm from './TodoForm';
 import './TodoList.scss';
 
 class TodoList extends Nullstack {
-  prepare(context) {
-    context.todos = [
-      { description: 'Learn HTML' },
-      { description: 'Learn CSS' },
-      { description: '😁 Learn JavaScript' },
-    ];
+  static async getItems({ database }) {
+    return await database.collection('todos').find({}).toArray();
+  }
+
+  async initiate(context) {
+    context.todos = await this.getItems();
   }
 
   renderTodo({ todo }) {
