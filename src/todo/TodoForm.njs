@@ -3,11 +3,19 @@ import Nullstack from 'nullstack';
 class TodoForm extends Nullstack {
   description = '';
 
-  addTodo({ todos }) {
-    todos.push({
+  static async createTask({ database, newItem }) {
+    await database.collection('todos').insertOne(newItem);
+  }
+
+  async addTodo({ todos }) {
+    const newItem = {
       description: this.description,
       done: false
-    });
+    }
+
+    await this.createTask({ newItem })
+    todos.push(newItem);
+
     this.description = '';
   }
 
