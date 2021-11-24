@@ -1,8 +1,22 @@
+import { MongoClient } from 'mongodb';
 import Nullstack from 'nullstack';
 import './Application.scss';
 import TodoList from './todo/TodoList';
 
 class Application extends Nullstack {
+  static async start(context) {
+    const { secrets } = context;
+
+    const databaseClient = new MongoClient(secrets.databaseUrl, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+
+    await databaseClient.connect();
+    const database = await databaseClient.db(secrets.databaseName);
+
+    context.database = database;
+  }
 
   prepare({ page, project }) {
     page.title = project.name;
@@ -12,13 +26,13 @@ class Application extends Nullstack {
   renderHead() {
     return (
       <head>
-        <link
-          href="https://fonts.gstatic.com" rel="preconnect" />
+        <link href="https://fonts.gstatic.com" rel="preconnect" />
         <link
           href="https://fonts.googleapis.com/css2?family=Crete+Round&family=Roboto&display=swap"
-          rel="stylesheet" />
+          rel="stylesheet"
+        />
       </head>
-    )
+    );
   }
 
   render() {
@@ -27,9 +41,8 @@ class Application extends Nullstack {
         <Head />
         <TodoList />
       </main>
-    )
+    );
   }
-
 }
 
 export default Application;
