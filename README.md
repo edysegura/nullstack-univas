@@ -1,4 +1,6 @@
-# Simple Pwa Todo
+# TODO | Nullstack
+
+A simple Todo App made with 💕 with Nullstack!
 
 <img src='https://raw.githubusercontent.com/nullstack/nullstack/master/nullstack.png' height='60' alt='Nullstack' />
 
