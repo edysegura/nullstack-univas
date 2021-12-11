@@ -1,7 +1,8 @@
-import { MongoClient } from 'mongodb';
 import Nullstack from 'nullstack';
-import './Application.scss';
+import { MongoClient } from 'mongodb';
 import TodoList from './todo/TodoList';
+
+import './Application.scss';
 import 'tailwindcss/dist/tailwind.css';
 
 class Application extends Nullstack {
